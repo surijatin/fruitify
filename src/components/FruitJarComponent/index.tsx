@@ -18,7 +18,7 @@ const FruitJarComponent: React.FC = () => {
   return (
     <>
       <div className="text-3xl font-extrabold text-center my-6 text-blue-600">
-        Fruit Jar
+        Your Fruit Jar
       </div>
       <div className="flex justify-end">
         <Statistic

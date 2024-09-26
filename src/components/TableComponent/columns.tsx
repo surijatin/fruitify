@@ -3,7 +3,7 @@ import AddToJarButton from "../ButtonComponent/index.tsx";
 
 export const columns = [
   {
-    title: "Name",
+    title: <span className="text-lg">Name</span>,
     dataIndex: "name",
     key: "name",
     sorter: (a, b) => a.name.localeCompare(b.name),
@@ -57,25 +57,25 @@ export const columns = [
       record.name.toLowerCase().includes(value.toLowerCase()),
   },
   {
-    title: "Family",
+    title: <span className="text-lg">Family</span>,
     dataIndex: "family",
     key: "family",
     render: (text) => <span className="text-lg">{text}</span>,
   },
   {
-    title: "Order",
+    title: <span className="text-lg">Order</span>,
     dataIndex: "order",
     key: "order",
     render: (text) => <span className="text-lg">{text}</span>,
   },
   {
-    title: "Genus",
+    title: <span className="text-lg">Genus</span>,
     dataIndex: "genus",
     key: "genus",
     render: (text) => <span className="text-lg">{text}</span>,
   },
   {
-    title: "Calories",
+    title: <span className="text-lg">Calories</span>,
     dataIndex: "nutritions",
     key: "calories",
     render: (nutritions) => (
@@ -84,7 +84,7 @@ export const columns = [
     sorter: (a, b) => a.nutritions.calories - b.nutritions.calories,
   },
   {
-    title: "Add to Jar",
+    title: <span className="text-lg">Add to Jar</span>,
     key: "addToCart",
     render: (text, record) => (
       <div className="text-lg">
