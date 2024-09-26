@@ -1,5 +1,6 @@
 import * as types from "./fruitJar.types.tsx";
 import { FruitJarItem } from "../../../types/fruit.tsx";
+import toast from "react-hot-toast";
 
 const initialState = {
   fruitJar: {
@@ -34,6 +35,22 @@ const fruitJarReducer = (state = initialState, action) => {
         0
       );
 
+      toast.success(
+        `${action.payload.name} added to jar. Qty: ${
+          fruitIndex === -1 ? 1 : state.fruitJar.data[fruitIndex].quantity + 1
+        }`,
+        {
+          duration: 2000,
+          position: "top-center",
+          // Aria
+          ariaProps: {
+            role: "status",
+            "aria-live": "polite",
+          },
+          className: "text-lg",
+        }
+      );
+
       return {
         ...state,
         fruitJar: {
@@ -66,6 +83,22 @@ const fruitJarReducer = (state = initialState, action) => {
           0
         );
 
+        if (
+          fruitIndexToRemove !== -1 &&
+          state.fruitJar.data[fruitIndexToRemove].quantity === 1
+        ) {
+          toast(`${action.payload.name} removed from jar.`, {
+            duration: 2000,
+            position: "top-center",
+            ariaProps: {
+              role: "status",
+              "aria-live": "polite",
+            },
+            className: "text-lg",
+            icon: "🚨",
+          });
+        }
+
         return {
           ...state,
           fruitJar: {
@@ -78,6 +111,16 @@ const fruitJarReducer = (state = initialState, action) => {
       return state;
 
     case types.CLEAR_FRUIT_JAR:
+      toast("Fruit jar cleared.", {
+        duration: 3000,
+        position: "top-center",
+        ariaProps: {
+          role: "status",
+          "aria-live": "polite",
+        },
+        className: "text-lg",
+        icon: "🗑️",
+      });
       return {
         ...state,
         fruitJar: {

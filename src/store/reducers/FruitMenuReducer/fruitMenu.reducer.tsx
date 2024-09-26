@@ -1,4 +1,5 @@
 import * as types from "./fruitMenu.types.tsx";
+import toast from "react-hot-toast";
 
 const initialState = {
   fruitsData: {
@@ -32,6 +33,7 @@ const fruitReducer = (state = initialState, action) => {
         },
       };
     case types.FETCH_FRUITS_ERROR:
+      toast.error(`Failed to fetch fruits data: ${action.payload}`);
       return {
         ...state,
         fruitsData: {

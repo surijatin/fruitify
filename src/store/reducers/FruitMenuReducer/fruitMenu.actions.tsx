@@ -11,7 +11,7 @@ export const fetchFruits = () => {
       );
       dispatch({ type: types.FETCH_FRUITS_SUCCESS, payload: response.data });
     } catch (error) {
-      dispatch({ type: types.FETCH_FRUITS_ERROR, error });
+      dispatch({ type: types.FETCH_FRUITS_ERROR, payload: error.message });
     }
   };
 };
