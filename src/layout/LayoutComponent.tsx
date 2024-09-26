@@ -7,7 +7,7 @@ const LayoutComponent = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="px-8 py-4 flex-grow">
+      <main className="px-8 py-4 flex-grow bg-zinc-50">
         <Outlet />
       </main>
       <FooterComponent />

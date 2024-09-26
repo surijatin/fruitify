@@ -3,7 +3,7 @@ import { Avatar } from "antd";
 
 const Header = () => {
   return (
-    <div className="border-b flex px-32 pt-4">
+    <div className="border-b flex px-16 pt-4">
       <div>
         <img src="/logo.png" alt="Instamart Logo" className="h-24" />
       </div>
