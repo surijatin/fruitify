@@ -20,25 +20,28 @@ const TableComponent: React.FC<TableComponentProps> = ({
       columns={columns}
       loading={loading}
       rowKey={(record) => record.id}
+      sticky={true}
       expandable={{
         expandedRowRender: (record) => (
-          <Descriptions title="Nutrition Details:" bordered column={2}>
-            <Descriptions.Item label="Fat">
-              {record.nutritions.fat}g
-            </Descriptions.Item>
-            <Descriptions.Item label="Sugar">
-              {record.nutritions.sugar}g
-            </Descriptions.Item>
-            <Descriptions.Item label="Carbohydrates">
-              {record.nutritions.carbohydrates}g
-            </Descriptions.Item>
-            <Descriptions.Item label="Protein">
-              {record.nutritions.protein}g
-            </Descriptions.Item>
-            <Descriptions.Item label="Calories">
-              {record.nutritions.calories} calories
-            </Descriptions.Item>
-          </Descriptions>
+          <div className="bg-gray-100 p-4">
+            <Descriptions title="Nutrition Details:" bordered column={2}>
+              <Descriptions.Item label="Fat">
+                {record.nutritions.fat}g
+              </Descriptions.Item>
+              <Descriptions.Item label="Sugar">
+                {record.nutritions.sugar}g
+              </Descriptions.Item>
+              <Descriptions.Item label="Carbohydrates">
+                {record.nutritions.carbohydrates}g
+              </Descriptions.Item>
+              <Descriptions.Item label="Protein">
+                {record.nutritions.protein}g
+              </Descriptions.Item>
+              <Descriptions.Item label="Calories">
+                {record.nutritions.calories} calories
+              </Descriptions.Item>
+            </Descriptions>
+          </div>
         ),
         rowExpandable: (record) => record.name !== "Not Expandable",
       }}

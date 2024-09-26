@@ -1,4 +1,5 @@
 import React from "react";
+import AddToJarButton from "../ButtonComponent/index.tsx";
 
 export const columns = [
   {
@@ -12,14 +13,7 @@ export const columns = [
       confirm,
       clearFilters,
     }) => (
-      <div
-        style={{
-          padding: 8,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
+      <div className="p-2 flex flex-col items-center">
         <input
           placeholder="Search Name"
           value={selectedKeys[0]}
@@ -34,33 +28,13 @@ export const columns = [
               confirm();
             }
           }}
-          style={{
-            width: "100%",
-            marginBottom: 8,
-            padding: 8,
-            borderRadius: 4,
-            border: "1px solid #d9d9d9",
-          }}
+          className="w-full mb-2 p-2 rounded border border-gray-300"
         />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            width: "100%",
-          }}
-        >
+        <div className="flex justify-between w-full">
           <button
             type="button"
             onClick={confirm}
-            style={{
-              flex: 1,
-              marginRight: 8,
-              padding: 8,
-              borderRadius: 4,
-              backgroundColor: "#1890ff",
-              color: "#fff",
-              border: "none",
-            }}
+            className="flex-1 mr-2 p-2 rounded-lg bg-blue-500 text-white shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
           >
             Search
           </button>
@@ -71,14 +45,7 @@ export const columns = [
               setSelectedKeys([]);
               confirm();
             }}
-            style={{
-              flex: 1,
-              padding: 8,
-              borderRadius: 4,
-              backgroundColor: "#f5222d",
-              color: "#fff",
-              border: "none",
-            }}
+            className="flex-1 p-2 rounded-lg bg-red-500 text-white shadow-md hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105"
           >
             Reset
           </button>
@@ -113,23 +80,6 @@ export const columns = [
   {
     title: "Add to Jar",
     key: "addToCart",
-    render: (text, record) => (
-      <button
-        type="button"
-        onClick={() => {
-          // Add to cart logic here
-          console.log(`Added ${record.name} to cart`);
-        }}
-        style={{
-          padding: "4px 8px",
-          borderRadius: "4px",
-          backgroundColor: "#d9d9d9",
-          color: "#000",
-          border: "1px solid #ccc",
-        }}
-      >
-        Add to Jar
-      </button>
-    ),
+    render: (text, record) => <AddToJarButton item={record} />,
   },
 ];
