@@ -1,4 +1,4 @@
-import * as types from "./types.tsx";
+import * as types from "./fruitMenu.types.tsx";
 
 const initialState = {
   fruitsData: {
@@ -6,6 +6,7 @@ const initialState = {
     lData: [],
     isLoading: false,
     error: null,
+    groupBy: "",
   },
 };
 
@@ -27,6 +28,7 @@ const fruitReducer = (state = initialState, action) => {
           lData: action.payload,
           isLoading: false,
           error: null,
+          groupBy: "",
         },
       };
     case types.FETCH_FRUITS_ERROR:
@@ -37,29 +39,34 @@ const fruitReducer = (state = initialState, action) => {
           lData: [],
           isLoading: false,
           error: action.payload,
+          groupBy: "",
         },
       };
     case types.GROUP_BY_FRUITS:
       const groupBy = action.payload;
-      console.log("🚀 ~ fruitReducer ~ groupBy:", groupBy);
-      const groupedData = state.fruitsData.tData.reduce(
-        (acc: Record<string, typeof state.fruitsData.tData>, fruit) => {
-          const key = fruit[groupBy];
-          if (!acc[key]) {
-            acc[key] = [];
-          }
-          acc[key].push(fruit);
-          return acc;
-        },
-        {} as Record<string, typeof state.fruitsData.tData>
-      );
-      console.log("🚀 ~ fruitReducer ~ groupedData:", groupedData);
+      let groupedData;
+      if (groupBy === "") {
+        groupedData = state.fruitsData.tData;
+      } else {
+        groupedData = state.fruitsData.tData.reduce(
+          (acc: Record<string, typeof state.fruitsData.tData>, fruit) => {
+            const key = fruit[groupBy];
+            if (!acc[key]) {
+              acc[key] = [];
+            }
+            acc[key].push(fruit);
+            return acc;
+          },
+          {} as Record<string, typeof state.fruitsData.tData>
+        );
+      }
       return {
         ...state,
         fruitsData: {
           ...state.fruitsData,
-          // lData: groupedData,
+          lData: groupedData,
           isLoading: false,
+          groupBy: action.payload,
         },
       };
     default:

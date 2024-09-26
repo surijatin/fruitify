@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import axios from "axios";
-import * as types from "./types.tsx";
+import * as types from "./fruitMenu.types.tsx";
 
 export const fetchFruits = () => {
   return async (dispatch: Dispatch) => {
@@ -17,10 +17,7 @@ export const fetchFruits = () => {
 };
 
 export const fetchFruitsByGroup = (groupBy: string) => {
-  console.log("🚀 ~ fetchFruitsByGroup ~ groupBy:", groupBy);
   return (dispatch: Dispatch) => {
-    console.log("Dispatching GROUP_BY_FRUITS with payload:", groupBy);
     dispatch({ type: types.GROUP_BY_FRUITS, payload: groupBy });
-    console.log("Dispatched GROUP_BY_FRUITS action");
   };
 };
