@@ -7,6 +7,7 @@ export const columns = [
     dataIndex: "name",
     key: "name",
     sorter: (a, b) => a.name.localeCompare(b.name),
+    render: (text) => <span className="text-lg">{text}</span>,
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -28,13 +29,13 @@ export const columns = [
               confirm();
             }
           }}
-          className="w-full mb-2 p-2 rounded border border-gray-300"
+          className="w-full mb-2 p-2 rounded border border-gray-300 text-lg"
         />
         <div className="flex justify-between w-full">
           <button
             type="button"
             onClick={confirm}
-            className="flex-1 mr-2 p-2 rounded-lg bg-blue-500 text-white shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105"
+            className="flex-1 mr-2 p-2 rounded-lg bg-blue-500 text-white shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 text-lg"
           >
             Search
           </button>
@@ -45,7 +46,7 @@ export const columns = [
               setSelectedKeys([]);
               confirm();
             }}
-            className="flex-1 p-2 rounded-lg bg-red-500 text-white shadow-md hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105"
+            className="flex-1 p-2 rounded-lg bg-red-500 text-white shadow-md hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105 text-lg"
           >
             Reset
           </button>
@@ -59,27 +60,36 @@ export const columns = [
     title: "Family",
     dataIndex: "family",
     key: "family",
+    render: (text) => <span className="text-lg">{text}</span>,
   },
   {
     title: "Order",
     dataIndex: "order",
     key: "order",
+    render: (text) => <span className="text-lg">{text}</span>,
   },
   {
     title: "Genus",
     dataIndex: "genus",
     key: "genus",
+    render: (text) => <span className="text-lg">{text}</span>,
   },
   {
     title: "Calories",
     dataIndex: "nutritions",
     key: "calories",
-    render: (nutritions) => <span>{nutritions.calories} calories</span>,
+    render: (nutritions) => (
+      <span className="text-lg">{nutritions.calories} calories</span>
+    ),
     sorter: (a, b) => a.nutritions.calories - b.nutritions.calories,
   },
   {
     title: "Add to Jar",
     key: "addToCart",
-    render: (text, record) => <AddToJarButton item={record} />,
+    render: (text, record) => (
+      <div className="text-lg">
+        <AddToJarButton item={record} />
+      </div>
+    ),
   },
 ];

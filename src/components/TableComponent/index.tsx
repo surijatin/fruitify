@@ -15,6 +15,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
 }) => {
   return (
     <Table
+      size={"large"}
       bordered
       dataSource={data}
       columns={columns}
@@ -23,7 +24,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
       sticky={true}
       expandable={{
         expandedRowRender: (record) => (
-          <div className="bg-gray-100 p-4">
+          <div className="bg-white-100 p-4">
             <Descriptions title="Nutrition Details:" bordered column={2}>
               <Descriptions.Item label="Fat">
                 {record.nutritions.fat}g

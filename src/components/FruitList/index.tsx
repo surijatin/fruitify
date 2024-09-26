@@ -11,7 +11,7 @@ import ActionButtonComponent from "../ActionButtonComponent/index.tsx";
 
 const FruitList: React.FC = () => {
   const dispatch = useAppDispatch();
-  const { isLoading, tData, lData, groupBy, error } = useAppSelector(
+  const { isLoading, tData, lData, groupBy } = useAppSelector(
     (state: any) => state.fruitReducer.fruitsData
   );
 
@@ -38,7 +38,7 @@ const FruitList: React.FC = () => {
   return (
     <>
       <div className="text-3xl font-extrabold text-center my-6 text-blue-600">
-        Fruit Inventory 🍓🍍🍑
+        Fruit Inventory
       </div>
       <ActionButtonComponent
         view={view}

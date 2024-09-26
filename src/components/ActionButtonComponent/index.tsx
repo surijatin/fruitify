@@ -46,9 +46,10 @@ const ActionButtonComponent = ({
           onChange={handleGroupByChange}
           className="w-52 h-10"
         >
+          <Option value="">None</Option>
           <Option value="family">Family</Option>
-          <Option value="genus">Genus</Option>
           <Option value="order">Order</Option>
+          <Option value="genus">Genus</Option>
         </Select>
         {groupBy === "" && (
           <Search

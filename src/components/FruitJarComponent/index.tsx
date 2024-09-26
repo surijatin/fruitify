@@ -26,6 +26,16 @@ const FruitJarComponent: React.FC = () => {
           value={totalCalories}
           prefix={<FireOutlined />}
           className="border p-4 rounded-lg"
+          valueStyle={{
+            color:
+              totalCalories === 0
+                ? "#000"
+                : totalCalories < 300
+                ? "#22c55e"
+                : totalCalories < 600
+                ? "#eab308"
+                : "#b91c1c",
+          }}
         />
       </div>
       <div className="my-4">
@@ -65,20 +75,20 @@ const FruitJarComponent: React.FC = () => {
           renderItem={(item: FruitJarItem) => (
             <List.Item>
               <div className="flex justify-between w-full">
-                <span>{item.name}</span>
+                <span className="text-lg">{item.name}</span>
                 <div className="flex items-center">
                   <button
                     onClick={() => dispatch(removeFruitFromJar(item))}
-                    className="px-2 py-1 bg-red-500 text-white rounded"
+                    className="px-2 py-1 bg-red-500 text-white rounded shadow-md hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105"
                   >
                     -
                   </button>
-                  <span className="mx-2 w-24 text-center">
-                    Quantity: {item.quantity}
+                  <span className="mx-1 w-24 text-center text-lg">
+                    Qty: {item.quantity}
                   </span>
                   <button
                     onClick={() => dispatch(addFruitToJar(item))}
-                    className="px-2 py-1 bg-green-500 text-white rounded"
+                    className="px-2 py-1 bg-green-500 text-white rounded shadow-md hover:bg-green-600 transition duration-300 ease-in-out transform hover:scale-105"
                   >
                     +
                   </button>

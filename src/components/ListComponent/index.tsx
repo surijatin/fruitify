@@ -45,14 +45,18 @@ const ListComponent: React.FC<ListComponentProps> = ({
           renderItem={(item: FruitType) => (
             <List.Item actions={[<AddToJarButton item={item} />]}>
               <List.Item.Meta
-                title={<span className="font-bold text-lg">{item.name}</span>}
+                title={
+                  <span className="font-bold text-lg">
+                    {item.name}{" "}
+                    <span className="text-gray-700">
+                      ({item.nutritions.calories} Calories)
+                    </span>
+                  </span>
+                }
                 description={
                   <>
                     Genus: {item.genus}, Family: {item.family}, Order:{" "}
                     {item.order},{" "}
-                    <span className="font-bold text-gray-700">
-                      Calories: {item.nutritions.calories}
-                    </span>
                   </>
                 }
               />
@@ -74,7 +78,8 @@ const ListComponent: React.FC<ListComponentProps> = ({
                   <span>{`${key} (${(group as FruitType[]).length})`}</span>
                   <button
                     type="button"
-                    onClick={() => {
+                    onClick={(e) => {
+                      e.stopPropagation();
                       (group as FruitType[]).forEach((item: FruitType) =>
                         dispatch(addFruitToJar(item))
                       );
