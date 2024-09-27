@@ -111,7 +111,7 @@ const fruitJarReducer = (state = initialState, action) => {
       return state;
 
     case types.CLEAR_FRUIT_JAR:
-      toast("Your Fruit Jar cleared.", {
+      toast("Your Fruit Jar has been emptied.", {
         duration: 3000,
         position: "top-center",
         ariaProps: {
