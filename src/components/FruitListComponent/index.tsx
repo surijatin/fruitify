@@ -38,7 +38,7 @@ const FruitListComponent: React.FC = () => {
 
   return (
     <>
-      <div className="text-3xl font-extrabold text-center my-6 text-blue-600">
+      <div className="text-2xl md:text-3xl font-extrabold text-center my-6 text-blue-600">
         Fruit Inventory
       </div>
       <ActionButtonComponent

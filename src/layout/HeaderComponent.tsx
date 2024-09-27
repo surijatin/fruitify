@@ -4,10 +4,10 @@ import { Avatar } from "antd";
 const Header = () => {
   return (
     <div className="border-b flex px-16 pt-4">
-      <div>
+      <div className="w-full flex justify-center md:justify-start">
         <img src="/logo.png" alt="Instamart Logo" className="h-24" />
       </div>
-      <div className="ml-auto flex items-center">
+      <div className="ml-auto flex items-center hidden md:flex">
         <Avatar
           src="/avatar.png"
           size={"large"}

@@ -46,7 +46,7 @@ const ListComponent: React.FC<ListComponentProps> = ({
             <List.Item actions={[<AddToJarButton item={item} />]}>
               <List.Item.Meta
                 title={
-                  <span className="font-bold text-lg">
+                  <span className="font-bold text-md md:text-lg">
                     {item.name}{" "}
                     <span className="text-gray-700">
                       ({item.nutritions.calories} Calories)
@@ -54,17 +54,17 @@ const ListComponent: React.FC<ListComponentProps> = ({
                   </span>
                 }
                 description={
-                  <>
+                  <span className="hidden md:inline">
                     Genus: {item.genus}, Family: {item.family}, Order:{" "}
-                    {item.order},{" "}
-                  </>
+                    {item.order}{" "}
+                  </span>
                 }
               />
             </List.Item>
           )}
         />
       ) : (
-        <Collapse accordion size="large">
+        <Collapse accordion size={window.innerWidth < 768 ? "medium" : "large"}>
           {Object.entries(data).map(([key, group]) => (
             <Collapse.Panel
               header={
@@ -98,14 +98,21 @@ const ListComponent: React.FC<ListComponentProps> = ({
                   <List.Item actions={[<AddToJarButton item={item} />]}>
                     <List.Item.Meta
                       title={
-                        <span className="font-bold text-lg">{item.name}</span>
+                        <span className="font-bold text-md md:text-lg">
+                          {item.name}{" "}
+                          <span className="md:hidden font-normal">
+                            ({item.nutritions.calories} Calories)
+                          </span>
+                        </span>
                       }
                       description={
                         <>
-                          Genus: {item.genus}, Family: {item.family}, Order:{" "}
-                          {item.order},{" "}
-                          <span className="font-bold text-gray-700">
-                            Calories: {item.nutritions.calories}
+                          <span className="hidden md:inline">
+                            Genus: {item.genus}, Family: {item.family}, Order:{" "}
+                            {item.order}{" "}
+                            <span className="md:font-bold text-gray-700">
+                              , Calories: {item.nutritions.calories}
+                            </span>
                           </span>
                         </>
                       }

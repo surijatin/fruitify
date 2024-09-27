@@ -3,11 +3,12 @@ import AddToJarButton from "../ButtonComponent";
 
 export const columns = [
   {
-    title: <span className="text-lg">Name</span>,
+    title: <span className="text-sm md:text-lg">Name</span>,
     dataIndex: "name",
     key: "name",
     sorter: (a, b) => a.name.localeCompare(b.name),
-    render: (text) => <span className="text-lg">{text}</span>,
+    render: (text) => <span className="text-sm md:text-lg">{text}</span>,
+    fixed: "left",
     filterDropdown: ({
       setSelectedKeys,
       selectedKeys,
@@ -29,13 +30,13 @@ export const columns = [
               confirm();
             }
           }}
-          className="w-full mb-2 p-2 rounded border border-gray-300 text-lg"
+          className="w-full mb-2 p-2 rounded border border-gray-300 text-sm md:text-lg"
         />
         <div className="flex justify-between w-full">
           <button
             type="button"
             onClick={confirm}
-            className="flex-1 mr-2 p-2 rounded-lg bg-blue-500 text-white shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 text-lg"
+            className="flex-1 mr-2 p-2 rounded-lg bg-blue-500 text-white shadow-md hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 text-sm md:text-lg"
           >
             Search
           </button>
@@ -46,7 +47,7 @@ export const columns = [
               setSelectedKeys([]);
               confirm();
             }}
-            className="flex-1 p-2 rounded-lg bg-red-500 text-white shadow-md hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105 text-lg"
+            className="flex-1 p-2 rounded-lg bg-red-500 text-white shadow-md hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105 text-sm md:text-lg"
           >
             Reset
           </button>
@@ -57,37 +58,37 @@ export const columns = [
       record.name.toLowerCase().includes(value.toLowerCase()),
   },
   {
-    title: <span className="text-lg">Family</span>,
+    title: <span className="text-sm md:text-lg">Family</span>,
     dataIndex: "family",
     key: "family",
-    render: (text) => <span className="text-lg">{text}</span>,
+    render: (text) => <span className="text-sm md:text-lg">{text}</span>,
   },
   {
-    title: <span className="text-lg">Order</span>,
+    title: <span className="text-sm md:text-lg">Order</span>,
     dataIndex: "order",
     key: "order",
-    render: (text) => <span className="text-lg">{text}</span>,
+    render: (text) => <span className="text-sm md:text-lg">{text}</span>,
   },
   {
-    title: <span className="text-lg">Genus</span>,
+    title: <span className="text-sm md:text-lg">Genus</span>,
     dataIndex: "genus",
     key: "genus",
-    render: (text) => <span className="text-lg">{text}</span>,
+    render: (text) => <span className="text-sm md:text-lg">{text}</span>,
   },
   {
-    title: <span className="text-lg">Calories</span>,
+    title: <span className="text-sm md:text-lg">Calories</span>,
     dataIndex: "nutritions",
     key: "calories",
     render: (nutritions) => (
-      <span className="text-lg">{nutritions.calories} calories</span>
+      <span className="text-sm md:text-lg">{nutritions.calories} calories</span>
     ),
     sorter: (a, b) => a.nutritions.calories - b.nutritions.calories,
   },
   {
-    title: <span className="text-lg">Add to Jar</span>,
+    title: <span className="text-sm md:text-lg">Add to Jar</span>,
     key: "addToCart",
     render: (text, record) => (
-      <div className="text-lg">
+      <div className="text-sm md:text-lg">
         <AddToJarButton item={record} />
       </div>
     ),

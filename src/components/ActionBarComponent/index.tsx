@@ -20,7 +20,7 @@ const ActionButtonComponent = ({
         setView("list");
         resetComp();
       }}
-      className={`px-4 py-2 rounded ${
+      className={`px-2 py-1 md:px-4 md:py-1.5 rounded ${
         view === "list" ? "bg-gray-300" : "bg-white"
       } text-black border border-gray-300 mr-2`}
     >
@@ -32,7 +32,7 @@ const ActionButtonComponent = ({
         setView("table");
         resetComp();
       }}
-      className={`px-4 py-2 rounded ${
+      className={`px-2 py-1 md:px-4 md:py-1.5 rounded ${
         view === "table" ? "bg-gray-300" : "bg-white"
       } text-black border border-gray-300 mr-2`}
     >
@@ -44,7 +44,8 @@ const ActionButtonComponent = ({
           allowClear
           placeholder="Group by"
           onChange={handleGroupByChange}
-          className="w-52 h-10"
+          className="w-40 h-8 md:w-52 md:h-10 mr-2 md:mr-0"
+          size="large"
         >
           <Option value="">None</Option>
           <Option value="family">Family</Option>
@@ -56,7 +57,7 @@ const ActionButtonComponent = ({
             placeholder="Search a fruit.."
             onSearch={handleSearch}
             size="large"
-            className="w-52 ml-auto"
+            className="w-40 md:w-52 ml-auto"
             enterButton
             allowClear
           />

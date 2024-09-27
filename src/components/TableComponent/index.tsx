@@ -17,17 +17,23 @@ const TableComponent: React.FC<TableComponentProps> = ({
 }) => {
   return (
     <Table
-      size="middle"
+      size={window.innerWidth < 768 ? "small" : "middle"}
       bordered
       dataSource={data}
       columns={columns}
       loading={loading}
       rowKey={(record) => record.id}
       sticky={true}
+      scroll={{ x: 768 }}
       expandable={{
         expandedRowRender: (record) => (
           <div className="bg-white-100 p-4">
-            <Descriptions title="Nutrition Details:" bordered column={2}>
+            <Descriptions
+              title="Nutrition Details:"
+              bordered
+              column={window.innerWidth < 768 ? 1 : 2}
+              size={window.innerWidth < 768 ? "small" : "default"}
+            >
               <Descriptions.Item label="Fat">
                 {record.nutritions.fat}g
               </Descriptions.Item>
