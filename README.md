@@ -2,6 +2,8 @@
 
 Instamart is a comprehensive fruit inventory management system designed to streamline the process of tracking and managing various types of fruits.
 
+> **Note:** Due to time constraints, this web app is not optimized for mobile devices. Future updates will focus on improving mobile responsiveness.
+
 ## Thought Process
 
 Given the technical requirements specified the use of **React**, the choice of framework was straightforward.
