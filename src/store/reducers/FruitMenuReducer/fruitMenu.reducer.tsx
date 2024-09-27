@@ -1,13 +1,14 @@
+import { FruitType } from "@/types/fruit";
 import * as types from "./fruitMenu.types";
 import toast from "react-hot-toast";
 
 const initialState = {
   fruitsData: {
-    tData: [],
-    lData: [],
-    isLoading: false,
-    error: null,
-    groupBy: "",
+    tData: [] as FruitType[],
+    lData: [] as any,
+    isLoading: false as boolean,
+    error: null as string | null,
+    groupBy: "" as string,
   },
 };
 

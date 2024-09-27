@@ -14,7 +14,7 @@ function useMaxToasts(max: number) {
   }, [toasts, max]);
 }
 
-export function ToasterWithMax({
+export default function ToasterWithMax({
   max = 3,
   ...props
 }: React.ComponentProps<typeof Toaster> & {

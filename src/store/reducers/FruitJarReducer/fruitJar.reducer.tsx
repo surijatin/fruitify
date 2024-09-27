@@ -1,17 +1,17 @@
-import * as types from "./fruitJar.types";
-import { FruitJarItem } from "../../../types/fruit";
-import toast from "react-hot-toast";
+import * as actionTypes from "./fruitJar.types";
+import { FruitJarItem } from "types/fruit";
+import { toast } from "react-hot-toast";
 
 const initialState = {
   fruitJar: {
     data: [] as FruitJarItem[],
-    totalCalories: 0,
+    totalCalories: 0 as number,
   },
 };
 
 const fruitJarReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.ADD_FRUIT_TO_JAR:
+    case actionTypes.ADD_FRUIT_TO_JAR:
       const fruitIndex = state.fruitJar.data.findIndex(
         (fruit) => fruit.name === action.payload.name
       );
@@ -42,7 +42,6 @@ const fruitJarReducer = (state = initialState, action) => {
         {
           duration: 2000,
           position: "top-center",
-          // Aria
           ariaProps: {
             role: "status",
             "aria-live": "polite",
@@ -59,7 +58,7 @@ const fruitJarReducer = (state = initialState, action) => {
           totalCalories,
         },
       };
-    case types.REMOVE_FRUIT_FROM_JAR:
+    case actionTypes.REMOVE_FRUIT_FROM_JAR:
       const fruitIndexToRemove = state.fruitJar.data.findIndex(
         (fruit) => fruit.name === action.payload.name
       );
@@ -110,7 +109,7 @@ const fruitJarReducer = (state = initialState, action) => {
       }
       return state;
 
-    case types.CLEAR_FRUIT_JAR:
+    case actionTypes.CLEAR_FRUIT_JAR:
       toast("Your Fruit Jar has been emptied.", {
         duration: 3000,
         position: "top-center",

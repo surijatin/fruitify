@@ -1,44 +1,68 @@
-import React from "react";
-import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { Statistic, List } from "antd";
+import React, { useState } from "react";
+import { useAppSelector, useAppDispatch } from "store/hooks";
+import { List } from "antd";
 import { DeleteOutlined, FireOutlined } from "@ant-design/icons";
-import { FruitJarItem } from "../../types/fruit";
+import { FruitJarItem } from "types/fruit";
 import {
   addFruitToJar,
   removeFruitFromJar,
   clearFruitJar,
-} from "../../store/reducers/FruitJarReducer/fruitJar.actions";
+} from "store/reducers/FruitJarReducer/fruitJar.actions";
+import { PieChartComponent } from "components/PieChartComponent";
 
 const FruitJarComponent: React.FC = () => {
   const dispatch = useAppDispatch();
   const { data, totalCalories } = useAppSelector(
     (state) => state.fruitJarReducer.fruitJar
   );
+  const [showPieChart, setShowPieChart] = useState(false);
 
   return (
     <>
       <div className="text-3xl font-extrabold text-center my-6 text-blue-600">
         Your Fruit Jar
       </div>
-      <div className="flex justify-end">
-        <Statistic
-          title="Total Calories"
-          value={totalCalories}
-          prefix={<FireOutlined />}
-          className="border p-4 rounded-lg"
-          valueStyle={{
-            color:
+      <div className="flex justify-between mb-4">
+        <div className="flex items-center border px-4 py-2 rounded-lg shadow-md bg-white">
+          <FireOutlined className="text-red-500 mr-2" />
+          <span className="text-lg font-semibold text-gray-700">
+            Total Calories:{" "}
+          </span>
+          <span
+            className={`text-lg font-semibold ml-1 ${
               totalCalories === 0
-                ? "#000"
+                ? "text-black"
                 : totalCalories < 300
-                ? "#22c55e"
+                ? "text-green-500"
                 : totalCalories < 600
-                ? "#eab308"
-                : "#b91c1c",
-          }}
-        />
+                ? "text-yellow-500"
+                : "text-red-700"
+            }`}
+          >
+            {totalCalories}
+          </span>
+        </div>
+        <button
+          onClick={() => setShowPieChart(!showPieChart)}
+          className={`px-4 py-2 rounded shadow-md transition duration-300 ease-in-out ${
+            data.length === 0
+              ? "bg-gray-400 text-gray-700 cursor-not-allowed"
+              : "bg-blue-500 text-white hover:bg-blue-600"
+          }`}
+          disabled={data.length === 0}
+        >
+          {showPieChart ? "Hide Pie Chart" : "Show Pie Chart"}
+        </button>
       </div>
-      <div className="my-4">
+      {showPieChart && data.length > 0 && (
+        <PieChartComponent
+          chartData={data.map((item) => ({
+            name: item.name,
+            totalCal: item.nutritions.calories * item.quantity,
+          }))}
+        />
+      )}
+      <div className="mb-4">
         <List
           header={
             <div className="flex justify-between items-center font-bold text-lg">
