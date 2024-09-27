@@ -12,7 +12,7 @@ import ActionButtonComponent from "components/ActionBarComponent";
 const FruitListComponent: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isLoading, tData, lData, groupBy } = useAppSelector(
-    (state: any) => state.fruitReducer.fruitsData
+    (state) => state.fruitReducer.fruitsData
   );
 
   const [view, setView] = useState<"table" | "list">("table");

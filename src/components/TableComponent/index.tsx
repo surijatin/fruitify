@@ -1,10 +1,12 @@
 import React from "react";
 import { Table } from "antd";
 import { Descriptions } from "antd";
+import { FruitType } from "types/fruit";
+import type { TableColumnsType } from "antd";
 
 interface TableComponentProps {
-  data: any[];
-  columns: any[];
+  data: FruitType[];
+  columns: TableColumnsType<FruitType>;
   loading: boolean;
 }
 
