@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
-import * as types from "./fruitJar.types.tsx";
-import { FruitType } from "../../../types/fruit.tsx";
+import * as types from "./fruitJar.types";
+import { FruitType } from "../../../types/fruit";
 
 export const addFruitToJar = (fruit: FruitType) => {
   return (dispatch: Dispatch) => {

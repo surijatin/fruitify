@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { List, Collapse } from "antd";
 import { FruitType } from "../../types/fruit";
-import AddToJarButton from "../ButtonComponent/index.tsx";
-import { useAppDispatch } from "../../store/hooks.tsx";
-import { addFruitToJar } from "../../store/reducers/FruitJarReducer/fruitJar.actions.tsx";
+import AddToJarButton from "../ButtonComponent";
+import { useAppDispatch } from "../../store/hooks";
+import { addFruitToJar } from "../../store/reducers/FruitJarReducer/fruitJar.actions";
 
 interface ListComponentProps {
   data: Record<string, FruitType[]> | FruitType[];

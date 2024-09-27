@@ -1,5 +1,5 @@
-import * as types from "./fruitJar.types.tsx";
-import { FruitJarItem } from "../../../types/fruit.tsx";
+import * as types from "./fruitJar.types";
+import { FruitJarItem } from "../../../types/fruit";
 
 const initialState = {
   fruitJar: {

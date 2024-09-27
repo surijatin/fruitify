@@ -2,7 +2,7 @@ import React from "react";
 import { TableOutlined, UnorderedListOutlined } from "@ant-design/icons";
 import { Select, Input } from "antd";
 
-const { Option } = Select;
+const Option = Select;
 const { Search } = Input;
 
 const ActionButtonComponent = ({

@@ -8,9 +8,9 @@ function useMaxToasts(max: number) {
 
   useEffect(() => {
     toasts
-      .filter((t) => t.visible) // Only consider visible toasts
-      .filter((_, i) => i >= max) // Is toast index over limit?
-      .forEach((t) => toast.dismiss(t.id)); // Dismiss – Use toast.remove(t.id) for no exit animation
+      .filter((t) => t.visible)
+      .filter((_, i) => i >= max)
+      .forEach((t) => toast.dismiss(t.id));
   }, [toasts, max]);
 }
 

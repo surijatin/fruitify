@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import {
   fetchFruits,
   fetchFruitsByGroup,
-} from "../../store/reducers/FruitMenuReducer/fruitMenu.actions.tsx";
-import TableComponent from "../TableComponent/index.tsx";
-import ListComponent from "../ListComponent/index.tsx";
-import { columns } from "../TableComponent/columns.tsx";
-import { useAppDispatch, useAppSelector } from "../../store/hooks.tsx";
-import ActionButtonComponent from "../ActionButtonComponent/index.tsx";
+} from "../../store/reducers/FruitMenuReducer/fruitMenu.actions";
+import TableComponent from "../TableComponent";
+import ListComponent from "../ListComponent";
+import { columns } from "../TableComponent/columns";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import ActionButtonComponent from "../ActionButtonComponent";
 
 const FruitList: React.FC = () => {
   const dispatch = useAppDispatch();

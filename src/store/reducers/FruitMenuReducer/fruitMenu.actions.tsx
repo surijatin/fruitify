@@ -1,6 +1,6 @@
 import { Dispatch } from "redux";
 import axios from "axios";
-import * as types from "./fruitMenu.types.tsx";
+import * as types from "./fruitMenu.types";
 
 export const fetchFruits = () => {
   return async (dispatch: Dispatch) => {
@@ -11,7 +11,14 @@ export const fetchFruits = () => {
       );
       dispatch({ type: types.FETCH_FRUITS_SUCCESS, payload: response.data });
     } catch (error) {
-      dispatch({ type: types.FETCH_FRUITS_ERROR, payload: error.message });
+      if (error instanceof Error) {
+        dispatch({ type: types.FETCH_FRUITS_ERROR, payload: error.message });
+      } else {
+        dispatch({
+          type: types.FETCH_FRUITS_ERROR,
+          payload: "An unknown error occurred",
+        });
+      }
     }
   };
 };

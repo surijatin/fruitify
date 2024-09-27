@@ -1,13 +1,13 @@
 import React from "react";
-import { useAppSelector, useAppDispatch } from "../../store/hooks.tsx";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { Statistic, List } from "antd";
 import { DeleteOutlined, FireOutlined } from "@ant-design/icons";
-import { FruitJarItem } from "../../types/fruit.tsx";
+import { FruitJarItem } from "../../types/fruit";
 import {
   addFruitToJar,
   removeFruitFromJar,
   clearFruitJar,
-} from "../../store/reducers/FruitJarReducer/fruitJar.actions.tsx";
+} from "../../store/reducers/FruitJarReducer/fruitJar.actions";
 
 const FruitJarComponent: React.FC = () => {
   const dispatch = useAppDispatch();

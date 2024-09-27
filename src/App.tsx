@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LayoutComponent from "./layout/LayoutComponent.tsx";
-import Home from "./layout/HomeComponent.tsx";
+import LayoutComponent from "./layout/LayoutComponent";
+import Home from "./layout/HomeComponent";
 
 export default function App() {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import AddToJarButton from "../ButtonComponent/index.tsx";
+import AddToJarButton from "../ButtonComponent";
 
 export const columns = [
   {

@@ -1,6 +1,6 @@
 import React from "react";
-import { useAppDispatch } from "../../store/hooks.tsx";
-import { addFruitToJar } from "../../store/reducers/FruitJarReducer/fruitJar.actions.tsx";
+import { useAppDispatch } from "../../store/hooks";
+import { addFruitToJar } from "../../store/reducers/FruitJarReducer/fruitJar.actions";
 import { FruitType } from "../../types/fruit";
 
 const AddToJarButton: React.FC<{ item: FruitType }> = ({ item }) => {

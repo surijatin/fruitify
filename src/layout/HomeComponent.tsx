@@ -1,7 +1,7 @@
 import React from "react";
-import FruitList from "../components/FruitList/index.tsx";
-import FruitJarComponent from "../components/FruitJarComponent/index.tsx";
-import { ToasterWithMax } from "../components/ToasterComponent/index.tsx";
+import FruitList from "../components/FruitList";
+import FruitJarComponent from "../components/FruitJarComponent";
+import { ToasterWithMax } from "../components/ToasterComponent";
 
 const Home = () => {
   return (

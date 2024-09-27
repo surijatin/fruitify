@@ -1,4 +1,4 @@
-import * as types from "./fruitMenu.types.tsx";
+import * as types from "./fruitMenu.types";
 import toast from "react-hot-toast";
 
 const initialState = {
