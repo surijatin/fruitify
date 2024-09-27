@@ -88,7 +88,7 @@ const fruitJarReducer = (state = initialState, action) => {
           state.fruitJar.data[fruitIndexToRemove].quantity === 1
         ) {
           toast(`${action.payload.name} removed from jar.`, {
-            duration: 2000,
+            duration: 3000,
             position: "top-center",
             ariaProps: {
               role: "status",
@@ -111,7 +111,7 @@ const fruitJarReducer = (state = initialState, action) => {
       return state;
 
     case types.CLEAR_FRUIT_JAR:
-      toast("Fruit jar cleared.", {
+      toast("Your Fruit Jar cleared.", {
         duration: 3000,
         position: "top-center",
         ariaProps: {

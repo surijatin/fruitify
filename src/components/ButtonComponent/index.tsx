@@ -11,9 +11,9 @@ const AddToJarButton: React.FC<{ item: FruitType }> = ({ item }) => {
       onClick={() => {
         dispatch(addFruitToJar(item));
       }}
-      className="px-2 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition duration-300 ease-in-out shadow-md transform hover:scale-105"
+      className="px-2 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition duration-300 ease-in-out shadow-md transform hover:scale-105 mx-auto block"
     >
-      Add to Jar
+      Add
     </button>
   );
 };

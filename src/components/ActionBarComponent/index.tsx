@@ -53,10 +53,10 @@ const ActionButtonComponent = ({
         </Select>
         {groupBy === "" && (
           <Search
-            placeholder="Search fruits.."
+            placeholder="Search a fruit.."
             onSearch={handleSearch}
             size="large"
-            className="w-52 ml-2"
+            className="w-52 ml-auto"
             enterButton
             allowClear
           />

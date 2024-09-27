@@ -15,7 +15,7 @@ const TableComponent: React.FC<TableComponentProps> = ({
 }) => {
   return (
     <Table
-      size={"large"}
+      size="middle"
       bordered
       dataSource={data}
       columns={columns}

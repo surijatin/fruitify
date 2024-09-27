@@ -7,9 +7,9 @@ import TableComponent from "../TableComponent";
 import ListComponent from "../ListComponent";
 import { columns } from "../TableComponent/columns";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import ActionButtonComponent from "../ActionButtonComponent";
+import ActionButtonComponent from "../ActionBarComponent";
 
-const FruitList: React.FC = () => {
+const FruitListComponent: React.FC = () => {
   const dispatch = useAppDispatch();
   const { isLoading, tData, lData, groupBy } = useAppSelector(
     (state: any) => state.fruitReducer.fruitsData
@@ -23,6 +23,7 @@ const FruitList: React.FC = () => {
   }, [dispatch]);
 
   const handleGroupByChange = (value: string) => {
+    setSearchTerm("");
     dispatch(fetchFruitsByGroup(value ?? ""));
   };
 
@@ -62,4 +63,4 @@ const FruitList: React.FC = () => {
   );
 };
 
-export default FruitList;
+export default FruitListComponent;
