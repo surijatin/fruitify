@@ -17,18 +17,6 @@ const ActionButtonComponent = ({
     <button
       type="button"
       onClick={() => {
-        setView("table");
-        resetComp();
-      }}
-      className={`px-4 py-2 rounded ${
-        view === "table" ? "bg-gray-300" : "bg-white"
-      } text-black border border-gray-300 mr-2`}
-    >
-      <TableOutlined />
-    </button>
-    <button
-      type="button"
-      onClick={() => {
         setView("list");
         resetComp();
       }}
@@ -37,6 +25,18 @@ const ActionButtonComponent = ({
       } text-black border border-gray-300 mr-2`}
     >
       <UnorderedListOutlined />
+    </button>
+    <button
+      type="button"
+      onClick={() => {
+        setView("table");
+        resetComp();
+      }}
+      className={`px-4 py-2 rounded ${
+        view === "table" ? "bg-gray-300" : "bg-white"
+      } text-black border border-gray-300 mr-2`}
+    >
+      <TableOutlined />
     </button>
     {view === "list" && (
       <>

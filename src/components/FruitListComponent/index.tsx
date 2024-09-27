@@ -15,7 +15,7 @@ const FruitListComponent: React.FC = () => {
     (state) => state.fruitReducer.fruitsData
   );
 
-  const [view, setView] = useState<"table" | "list">("table");
+  const [view, setView] = useState<"table" | "list">("list");
   const [searchTerm, setSearchTerm] = useState<string>("");
 
   useEffect(() => {
