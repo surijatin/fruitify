@@ -33,7 +33,7 @@ const FruitListComponent: React.FC = () => {
 
   const resetComp = () => {
     setSearchTerm("");
-    fetchFruitsByGroup("");
+    dispatch(fetchFruitsByGroup(""));
   };
 
   return (
