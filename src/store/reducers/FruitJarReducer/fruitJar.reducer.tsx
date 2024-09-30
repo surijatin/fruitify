@@ -6,12 +6,33 @@ const initialState = {
   fruitJar: {
     data: [] as FruitJarItem[],
     totalCalories: 0 as number,
+    limitCal: 0 as number,
   },
 };
 
 const fruitJarReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_FRUIT_TO_JAR:
+      if (
+        state.fruitJar.totalCalories + action.payload.nutritions.calories >
+        state.fruitJar.limitCal
+      ) {
+        toast.error(
+          `You have reached the calorie limit of ${state.fruitJar.limitCal}.`,
+          {
+            duration: 3000,
+            position: "top-center",
+            ariaProps: {
+              role: "status",
+              "aria-live": "polite",
+            },
+            className: "text-lg",
+            icon: "🚨",
+          }
+        );
+        return state;
+      }
+
       const fruitIndex = state.fruitJar.data.findIndex(
         (fruit) => fruit.name === action.payload.name
       );
@@ -123,11 +144,20 @@ const fruitJarReducer = (state = initialState, action) => {
       return {
         ...state,
         fruitJar: {
+          ...state.fruitJar,
           data: [],
           totalCalories: 0,
         },
       };
 
+    case actionTypes.SET_LIMIT:
+      return {
+        ...state,
+        fruitJar: {
+          ...state.fruitJar,
+          limitCal: action.payload,
+        },
+      };
     default:
       return state;
   }

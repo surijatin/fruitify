@@ -3,6 +3,7 @@ import {
   fetchFruits,
   fetchFruitsByGroup,
 } from "store/reducers/FruitMenuReducer/fruitMenu.actions";
+import { setLimit } from "store/reducers/FruitJarReducer/fruitJar.actions";
 import TableComponent from "components/TableComponent";
 import ListComponent from "components/ListComponent";
 import { columns } from "components/TableComponent/columns";
@@ -15,8 +16,16 @@ const FruitListComponent: React.FC = () => {
     (state) => state.fruitReducer.fruitsData
   );
 
+  const { limitCal } = useAppSelector(
+    (state) => state.fruitJarReducer.fruitJar
+  );
+
   const [view, setView] = useState<"table" | "list">("list");
   const [searchTerm, setSearchTerm] = useState<string>("");
+
+  const handleLimit = (e) => {
+    dispatch(setLimit(parseInt(e.target.value)));
+  };
 
   useEffect(() => {
     dispatch(fetchFruits());
@@ -48,6 +57,8 @@ const FruitListComponent: React.FC = () => {
         handleSearch={handleSearch}
         groupBy={groupBy}
         resetComp={resetComp}
+        limitCal={limitCal}
+        handleLimit={handleLimit}
       />
       {view === "table" ? (
         <TableComponent columns={columns} data={tData} loading={isLoading} />

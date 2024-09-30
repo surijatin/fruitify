@@ -12,6 +12,8 @@ const ActionButtonComponent = ({
   handleSearch,
   groupBy,
   resetComp,
+  limitCal,
+  handleLimit,
 }) => (
   <div className="my-4 flex items-center">
     <button
@@ -38,6 +40,14 @@ const ActionButtonComponent = ({
     >
       <TableOutlined />
     </button>
+    <Input
+      type="number"
+      placeholder="Set the calorie limit"
+      className="w-40 h-8 md:w-52 md:h-10 mr-2 md:mr-0"
+      size="large"
+      onChange={handleLimit}
+      value={limitCal}
+    />
     {view === "list" && (
       <>
         <Select

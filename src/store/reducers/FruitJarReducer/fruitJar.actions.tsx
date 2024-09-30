@@ -19,3 +19,9 @@ export const clearFruitJar = () => {
     dispatch({ type: actionTypes.CLEAR_FRUIT_JAR });
   };
 };
+
+export const setLimit = (limit: number) => {
+  return (dispatch: Dispatch) => {
+    dispatch({ type: actionTypes.SET_LIMIT, payload: limit });
+  };
+};
