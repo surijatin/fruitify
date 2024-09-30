@@ -43,7 +43,7 @@ const ActionButtonComponent = ({
     <Input
       type="number"
       placeholder="Set the calorie limit"
-      className="w-40 h-8 md:w-52 md:h-10 mr-2 md:mr-0"
+      className="w-40 h-8 md:w-52 md:h-10 mr-2"
       size="large"
       onChange={handleLimit}
       value={limitCal}
