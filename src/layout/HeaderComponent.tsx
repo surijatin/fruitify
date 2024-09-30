@@ -14,7 +14,14 @@ const Header = () => {
           className="text-white bg-gray-400 hover:cursor-pointer"
         />
         <div className="ml-2 flex flex-col">
-          <span className="text-gray-800 font-semibold">Jatin Suri</span>
+          <a
+            href="http://jatinsuri.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-800 font-semibold"
+          >
+            Jatin Suri
+          </a>
           <span className="text-gray-800 text-sm">surijatin16@gmail.com</span>
         </div>
       </div>

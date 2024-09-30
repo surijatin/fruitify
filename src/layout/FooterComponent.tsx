@@ -8,7 +8,15 @@ const FooterComponent: React.FC = () => {
         <span className="text-slate-400">and</span>
         <span className="text-slate-600"> developed</span>{" "}
         <span className="text-slate-400">by</span>
-        <span className="text-slate-600"> Jatin Suri</span>
+        <a
+          href="http://jatinsuri.in"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-slate-600 underline py-1 rounded"
+        >
+          {" "}
+          Jatin Suri
+        </a>
       </p>
     </footer>
   );
